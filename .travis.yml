@@ -3,4 +3,5 @@ language: java
 # skip installation step
 install: true
 
-script: - mvn -f Mockito_Example/pom.xml clean test
+script:
+- mvn -f Mockito_Example/pom.xml clean test

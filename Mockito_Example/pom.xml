@@ -39,6 +39,9 @@
 
     <build>
         <plugins>
+            <!-- Code coverage plugin, generates coverage report to target/site/jacoco/
+     To skip coverage generation add -Djacoco.skip=true
+-->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -92,12 +95,11 @@
                 </configuration>
             </plugin>
 
-
-            <plugin>
-                <groupId>org.eluder.coveralls</groupId>
-                <artifactId>coveralls-maven-plugin</artifactId>
-                <version>4.3.0</version>
-            </plugin>
+        <plugin>
+            <groupId>org.eluder.coveralls</groupId>
+            <artifactId>coveralls-maven-plugin</artifactId>
+            <version>3.0.1</version>
+        </plugin>
         </plugins>
     </build>
 

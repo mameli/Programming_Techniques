@@ -7,5 +7,5 @@ cache:
 
 install: true
 
-script:
-- mvn -f Mockito_Example/pom.xml clean test jacoco:report coveralls:report
+after_success:
+  - mvn -f Mockito_Example/pom.xml clean test jacoco:report coveralls:report

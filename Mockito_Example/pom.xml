@@ -12,6 +12,10 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <jacoco.data.file>${project.build.directory}/coverage-
+          reports/jacoco.exec</jacoco.data.file>
+      <jacoco.report.path>${project.reporting.outputDirectory}/jacoco-
+          ut</jacoco.report.path>
   </properties>
 
   <dependencies>
@@ -36,14 +40,27 @@
     <build>
         <plugins>
             <plugin>
+                <!-- CODE COVERAGE -->
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.7.6.201602180812</version>
+                <version>0.7.4.201502262128 </version>
                 <executions>
+                    <!-- Prepare execution with Surefire -->
                     <execution>
-                        <id>prepare-agent</id>
+                        <id>pre-unit-test</id>
                         <goals>
                             <goal>prepare-agent</goal>
+                        </goals>
+                        <configuration>
+                            <propertyName>surefireArgLine</propertyName>
+                        </configuration>
+                    </execution>
+                    <!-- Generate report after tests are run -->
+                    <execution>
+                        <id>post-unit-test</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -53,9 +70,6 @@
                 <groupId>org.eluder.coveralls</groupId>
                 <artifactId>coveralls-maven-plugin</artifactId>
                 <version>4.3.0</version>
-                <configuration>
-                    <repoToken>yourcoverallsprojectrepositorytoken</repoToken>
-                </configuration>
             </plugin>
         </plugins>
     </build>

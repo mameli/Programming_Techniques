@@ -55,6 +55,11 @@ public class TeacherTest {
     }
 
     @Test
+    public void sendEmailsToStudentsFail(){
+        when(database.getListOfStudentTutoredByTeacherID(teacher1.getID())).thenReturn(new ArrayList<Student>());
+        teacher1.sendEmailToAllStudents("Contenuto email");
+    }
+    @Test
     public void sendEmailsToStudents(){
         when(database.getListOfStudentTutoredByTeacherID(teacher1.getID())).thenReturn(asList(student1,student2,student3));
         teacher1.sendEmailToAllStudents("Contenuto email");

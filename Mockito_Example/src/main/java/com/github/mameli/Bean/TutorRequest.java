@@ -16,15 +16,8 @@ public class TutorRequest {
         return IDStudent;
     }
 
-    public void setIDStudent(Integer IDStudent) {
-        this.IDStudent = IDStudent;
-    }
-
     public Integer getIDTeacher() {
         return IDTeacher;
     }
 
-    public void setIDTeacher(Integer IDTeacher) {
-        this.IDTeacher = IDTeacher;
-    }
 }

@@ -41,10 +41,11 @@ public class Course {
 
     public void courseRequest(Integer IDStudent){
         Student newStudent = database.getStudentByID(IDStudent);
-
-        database.addStudentToCourse(new CourseAttendance(IDStudent,this.getID()));
+        CourseAttendance courseAttendance = new CourseAttendance(IDStudent,this.getID());
+        database.addStudentToCourse(courseAttendance);
         mailService.sendEmail(newStudent.getMail(),this.getMail(),"Conferma richiesta corso");
-        LOGGER.info("Richiesta dello studente confermata");
+        LOGGER.info("Richiesta dello studente " + courseAttendance.getIDStudent() + " al corso "
+                                                + courseAttendance.getIDCourse()+ " confermata");
     }
 
     public Integer getID() {

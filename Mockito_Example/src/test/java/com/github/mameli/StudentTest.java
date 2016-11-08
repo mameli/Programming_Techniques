@@ -21,6 +21,7 @@ public class StudentTest {
     private Student studentNullTutorOneRequest;
     private Student studentNullTutor;
     private Teacher teacher1;
+    private TutorRequest tutorRequest;
     @Mock DB2 database;
     @Mock MailService mailService;
 
@@ -32,6 +33,7 @@ public class StudentTest {
         studentNullTutor = new Student(4321,"Luca","Bianchi",null,"luca.bianchi@unifi.it",database,mailService);
         teacher1 = new Teacher(1,"Michele","Loreti","michele.loreti@unifi.it",database,mailService);
         Course  course1 = new Course(1,"Reti","reti@unifi.it",teacher1.getID(),database,mailService);
+        tutorRequest = new TutorRequest(studentNullTutorOneRequest.getID(),teacher1.getID());
 
         when(database.getTeacherByID(teacher1.getID())).thenReturn(teacher1);
         when(database.getCourseByID(1)).thenReturn(course1);
@@ -40,7 +42,8 @@ public class StudentTest {
     @Test(expected = Exception.class)
     public void tutorRequestTestAlreadyOneRequest() throws Exception {
         when(database.getTutorRequestByStudentID(studentNullTutorOneRequest.getID()))
-                     .thenReturn(new TutorRequest(studentNullTutorOneRequest.getID(),teacher1.getID()));
+                     .thenReturn(tutorRequest);
+        tutorRequest.getIDStudent();
         studentNullTutorOneRequest.tutorRequest(2);
     }
 

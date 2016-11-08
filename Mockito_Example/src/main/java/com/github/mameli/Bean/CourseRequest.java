@@ -2,6 +2,7 @@ package com.github.mameli.Bean;
 
 /**
  * Created by mameli on 20/10/2016.
+ *
  */
 public class CourseRequest {
     private Integer IDStudent;
@@ -16,15 +17,8 @@ public class CourseRequest {
         return IDStudent;
     }
 
-    public void setIDStudent(Integer IDStudent) {
-        this.IDStudent = IDStudent;
-    }
-
     public Integer getIDCourse() {
         return IDCourse;
     }
 
-    public void setIDCourse(Integer IDCourse) {
-        this.IDCourse = IDCourse;
-    }
 }

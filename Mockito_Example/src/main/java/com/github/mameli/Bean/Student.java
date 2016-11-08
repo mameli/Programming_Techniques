@@ -55,7 +55,7 @@ public class Student {
         CourseRequest courseRequestPending = database.getCourseRequestByStudentID(this.getID());
         if (courseRequestPending != null){
             Course courseRequested = database.getCourseByID(courseRequestPending.getIDCourse());
-            LOGGER.error("Lo studente " + this.getNome() + " " + this.getCognome() + " ha gia' una richiesta al corso ID:"
+            LOGGER.error("Lo studente " + this.getNome() + " " + this.getCognome() + courseRequestPending.getIDStudent()+ " ha gia' una richiesta al corso ID:"
                          + courseRequested.getID() +" Nome:" + courseRequested.getNome());
             throw new Exception("Lo studente "+ this.getNome() + " " + this.getCognome() + " ha gia' una course request");
         }

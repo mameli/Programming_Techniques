@@ -50,6 +50,8 @@ public class Teacher {
                 mailService.sendEmail(this.getMail(),s.getMail(),content);
             }
             LOGGER.info("Email inviate a tutti gli studenti");
+        }else{
+            LOGGER.info("Nessuna Email inviata");
         }
     }
 

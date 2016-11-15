@@ -8,7 +8,7 @@ cache:
 
 install: true
 
-osx_image: xcode7.3
+
 
 matrix:
   fast_finish: true
@@ -21,6 +21,7 @@ matrix:
     - jdk: openjdk6
 
     - os: osx
+      osx_image: xcode7.3
 
 
 script:

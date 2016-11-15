@@ -8,6 +8,8 @@ cache:
 
 install: true
 
+osx_image: xcode8
+
 matrix:
   fast_finish: true
   include:
@@ -19,6 +21,7 @@ matrix:
     - jdk: openjdk6
 
     - os: osx
+
 
 script:
   - if [ "$WITH_COVERALLS" == "true" ];

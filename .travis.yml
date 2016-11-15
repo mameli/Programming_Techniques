@@ -26,7 +26,7 @@ matrix:
 script:
   - if [ "$WITH_COVERALLS" == "true" ];
     then
-      mvn -f Mockito_Example/pom.xml clean test jacoco:report && mvn -f Mockito_Example/pom.xml coveralls:report
+      mvn -f Mockito_Example/pom.xml clean test jacoco:report coveralls:report
     else
     then mvn -f Mockito_Example/pom.xml clean test;
     fi

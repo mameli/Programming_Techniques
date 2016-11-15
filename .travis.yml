@@ -1,0 +1,31 @@
+sudo: false
+
+language: java
+
+cache:
+  directories:
+  - $HOME/.m2
+
+install: true
+
+
+
+matrix:
+  fast_finish: true
+  include:
+    - jdk: oraclejdk8
+      env: WITH_COVERALLS=true
+
+    - jdk: oraclejdk7
+
+    - jdk: openjdk6
+
+
+
+script:
+  - 'if [ "$WITH_COVERALLS" == "true" ];then
+      mvn -f Mockito_Example/pom.xml clean test jacoco:report;
+      mvn -f Mockito_Example/pom.xml coveralls:report;
+    else
+      mvn -f Mockito_Example/pom.xml clean test;
+    fi'

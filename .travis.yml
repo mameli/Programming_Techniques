@@ -20,7 +20,6 @@ matrix:
 
     - jdk: openjdk6
 
-    - os: osx
 
 
 script:

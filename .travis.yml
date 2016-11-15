@@ -28,5 +28,5 @@ script:
     then
       mvn -f Mockito_Example/pom.xml clean test jacoco:report coveralls:report
     else
-    then mvn -f Mockito_Example/pom.xml clean test;
+    mvn -f Mockito_Example/pom.xml clean test;
     fi

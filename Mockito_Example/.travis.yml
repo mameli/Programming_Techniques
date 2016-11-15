@@ -8,7 +8,21 @@ cache:
 
 install: true
 
+matrix:
+  fast_finish: true
+  include:
+    - jdk: oraclejdk8
+      env: WITH_COVERALLS=true
+
+    - jdk: oraclejdk7
+
+    - jdk: openjdk6
+
+    - os: osx
+
 script:
+  - if [ "$WITH_COVERALLS" == "true" ];
   - mvn -f Mockito_Example/pom.xml clean test jacoco:report
-after_success:
   - mvn -f Mockito_Example/pom.xml coveralls:report
+  - else mvn -f Mockito_Example/pom.xml clean test
+  - fi

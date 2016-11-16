@@ -20,8 +20,8 @@ matrix:
 
     - jdk: openjdk6
 
-
-
+    - os: osx
+    
 script:
   - 'if [ "$WITH_COVERALLS" == "true" ];then
       mvn -f Mockito_Example/pom.xml clean test jacoco:report;
